@@ -11,6 +11,7 @@ import Tutorials from './Tutorials';
 const { Header, Footer, Content, Sider } = Layout;
 
 const App = () => {
+  const [isPremium, setIsPremium] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const [selectedModule, setSelectedModule] = useState('dashboard');
@@ -19,13 +20,31 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('user');
+    const premiumStatus = localStorage.getItem('premium');
 
     console.log("UseEffeeecT! =>  ", token, userId)
 
     if (token && userId) {
       setLoggedIn(true);
     }
+
+    if (premiumStatus === "true") {
+      setIsPremium(true);
+    }
   }, []);
+
+  const premium = () => {
+    if (localStorage.getItem("premium") == "false")
+    {
+      setIsPremium(true);
+      localStorage.setItem("premium", "true");
+    }
+    else
+    {
+      setIsPremium(false);
+      localStorage.setItem("premium", "false");
+    }
+  }
 
   const logout = () => {
     setLoggedIn(false);
@@ -63,7 +82,7 @@ const App = () => {
             }}>
               EcoMax
             </div>
-            <Toolbar logout={logout} />
+            <Toolbar premium={premium} logout={logout} isPremium={isPremium} />
           </Header>
 
           <Layout>
