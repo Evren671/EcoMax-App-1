@@ -24,7 +24,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ logout, premium, isPremium}) => {
             key: "2",
             label: (
                 <Button onClick={premium}>
-                  {isPremium ? "Premium deaktivieren" : "Premium aktivieren"}
+                  {isPremium ? "deactivate Premium" : "activate Premium"}
                 </Button>
               ),
         },

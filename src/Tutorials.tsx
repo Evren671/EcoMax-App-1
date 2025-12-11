@@ -8,21 +8,30 @@ const Tutorials = () => {
     const [selectedTutorial, setSelectedTutorial] = useState('add-devices');
 
     const tutorials = {
-        'get-premium': {
-            title: 'How to get Premium Access',
-            content: '1. Click on your profile in the top right corner\n2. Look for a button called "Get Premium"\n3. Click on the button and accept the conditions and click on buy subscription'
+        'activate-premium': {
+            title: 'How to activate Premium access',
+            content: '1. Click on your profile in the top right corner\n2. Look for a button called "activate Premium"\n3. Click on the button'
+        },
+        'deactivate-premium': {
+            title: 'How to deactivate Premium Access',
+            content: '1. Click on your profile in the top right corner\n2. Look for a button called "deactivate Premium"\n3. Click on the button'
         },
         'add-devices': {
             title: 'How to Add Devices',
-            content: 'EMPTY'
+            content: 'this is still a work in progress...'
         },
     };
 
     const menuItems = [
         {
-            key: 'get-premium',
+            key: 'activate-premium',
             icon: <BookOutlined />,
-            label: 'How to get Premium Access',
+            label: 'How to activate Premium Access',
+        },
+        {
+            key: 'deactivate-premium',
+            icon: <BookOutlined />,
+            label: 'How to deactivate Premium Access',
         },
         {
             key: 'add-devices',
